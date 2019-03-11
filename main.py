@@ -204,7 +204,7 @@ class Game:
         self.all_sprites.draw(self.tela)
         self.draw_text('Pontos: ' + str(self.score), 20, black, 65, 10)
         self.draw_text('pause[P]', 15, RED, 40, altura - 27)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
         # depois de desenhar tudo, flip the display
         pg.display.flip()
 
@@ -213,7 +213,7 @@ class Game:
         pg.mixer.music.play(-1)
         self.tela.fill(white)
         self.draw_text('-= JUMPY JOE =-', 45, GREEN, largura/2, altura/4)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura/2, altura*2/3)
         pg.display.flip()
         self.wait_for_key()
@@ -226,7 +226,7 @@ class Game:
         self.tela.fill(white)
         self.draw_text('Pontos: ' + str(self.score), 20, GREEN, 65, 10)
         self.draw_text('GAME OVER', 45, RED, largura / 2, altura / 4)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura / 2, altura * 2 / 3)
         pg.display.flip()
         self.wait_for_key()
