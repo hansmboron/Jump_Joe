@@ -1,3 +1,4 @@
+# coding: utf-8
 # Art by Kenney.nl
 # Sound by Syncopika and Alexandr Zhelanov and sharesynth
 
@@ -175,6 +176,7 @@ class Game:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()
+                    quit()
                 if event.type == pg.KEYDOWN:
                     if event.key == pg.K_p:
                         pg.mixer.music.unpause()
@@ -195,6 +197,8 @@ class Game:
                     self.draw_text('Pausado[P]', 60, RED, largura / 2, altura / 2 - 50)
                     pg.display.update()
                     self.pause()
+                if event.key == pg.K_m:
+                    pg.mixer.music.fadeout(500)
             if event.type == pg.KEYUP:
                 if event.key == pg.K_SPACE or event.key == pg.K_UP:
                     self.player.jump_cut()
@@ -204,7 +208,7 @@ class Game:
         self.all_sprites.draw(self.tela)
         self.draw_text('Pontos: ' + str(self.score), 20, black, 65, 10)
         self.draw_text('pause[P]', 15, RED, 40, altura - 27)
-        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
+        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
         # depois de desenhar tudo, flip the display
         pg.display.flip()
 
@@ -213,7 +217,7 @@ class Game:
         pg.mixer.music.play(-1)
         self.tela.fill(white)
         self.draw_text('-= JUMPY JOE =-', 45, GREEN, largura/2, altura/4)
-        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
+        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura/2, altura*2/3)
         pg.display.flip()
         self.wait_for_key()
@@ -226,7 +230,7 @@ class Game:
         self.tela.fill(white)
         self.draw_text('Pontos: ' + str(self.score), 20, GREEN, 65, 10)
         self.draw_text('GAME OVER', 45, RED, largura / 2, altura / 4)
-        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
+        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura / 2, altura * 2 / 3)
         pg.display.flip()
         self.wait_for_key()
@@ -257,3 +261,4 @@ while g.running:
     g.show_go_screen()
 
 pg.quit()
+quit()
