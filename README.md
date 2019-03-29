@@ -3,7 +3,7 @@ Faça o coelhinho chegar o mais alto possivel sem cair e sem colidir com os Mob!
 
 espaço ou seta para cima = PULAR<br>
 setas para direita e esquerda = ANDAR<br>
-tecla "p" = PAUSAR/DESPAUSAR<>br
+tecla "p" = PAUSAR/DESPAUSAR<br>
 tecla "m" = MUDO(musica de fundo)<br>
 tecla "Esc" = SAIR<br>
 
