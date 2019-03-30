@@ -91,13 +91,13 @@ class Game:
         # Aparecer inimigo?
         agora = pg.time.get_ticks()
         if self.score < 1000:
-            self.MOB_FREQ = 10000
+            self.MOB_FREQ = 11000
         elif 1000 <= self.score < 2000:
-            self.MOB_FREQ = 8000
+            self.MOB_FREQ = 9000
         elif 2000 <= self.score < 3000:
-            self.MOB_FREQ = 6000
+            self.MOB_FREQ = 7000
         else:
-            self.MOB_FREQ = 4500
+            self.MOB_FREQ = 5500
         if agora - self.mob_timer > self.MOB_FREQ + choice([-2000, 0, 2000, 4000]):
             self.mob_sound.play()
             self.mob_timer = agora
@@ -177,7 +177,7 @@ class Game:
                 if event.type == pg.QUIT:
                     pg.quit()
                     quit()
-                if event.type == pg.KEYDOWN:
+                elif event.type == pg.KEYDOWN:
                     if event.key == pg.K_p:
                         pg.mixer.music.unpause()
                         paused = False
@@ -193,11 +193,11 @@ class Game:
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE or event.key == pg.K_UP:
                     self.player.jump()
-                if event.key == pg.K_p:
+                elif event.key == pg.K_p:
                     self.draw_text('Pausado[P]', 60, RED, largura / 2, altura / 2 - 50)
                     pg.display.update()
                     self.pause()
-                if event.key == pg.K_m:
+                elif event.key == pg.K_m:
                     pg.mixer.music.fadeout(500)
             if event.type == pg.KEYUP:
                 if event.key == pg.K_SPACE or event.key == pg.K_UP:
@@ -243,7 +243,7 @@ class Game:
                 if event.type == pg.QUIT:
                     waiting = False
                     self.running = False
-                if event.type == pg.KEYDOWN:
+                elif event.type == pg.KEYDOWN:
                     waiting = False
 
     def draw_text(self, text, size, color, x, y):
