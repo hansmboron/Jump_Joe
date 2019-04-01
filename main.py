@@ -91,13 +91,20 @@ class Game:
         # Aparecer inimigo?
         agora = pg.time.get_ticks()
         if self.score < 1000:
-            self.MOB_FREQ = 11000
+            self.tela.fill((135,206,250))
+            self.MOB_FREQ = 12000
         elif 1000 <= self.score < 2000:
-            self.MOB_FREQ = 9000
+            self.tela.fill((0, 191, 255))
+            self.MOB_FREQ = 10000
         elif 2000 <= self.score < 3000:
-            self.MOB_FREQ = 7000
+            self.tela.fill((30, 144, 255))
+            self.MOB_FREQ = 8000
+        elif 4000 <= self.score < 5000:
+            self.tela.fill((25, 25, 200))
+            self.MOB_FREQ = 6000
         else:
-            self.MOB_FREQ = 5500
+            self.tela.fill((30, 130, 220))
+            self.MOB_FREQ = 4500
         if agora - self.mob_timer > self.MOB_FREQ + choice([-2000, 0, 2000, 4000]):
             self.mob_sound.play()
             self.mob_timer = agora
@@ -204,33 +211,36 @@ class Game:
                     self.player.jump_cut()
 
     def draw(self):
-        self.tela.fill(LIGHTBLUE)
         self.all_sprites.draw(self.tela)
-        self.draw_text('Pontos: ' + str(self.score), 20, black, 65, 10)
+        self.draw_text('Pontos: ' + str(self.score), 20, black, 70, 10)
         self.draw_text('pause[P]', 15, RED, 40, altura - 27)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 16, black, largura - 100, altura - 30)
         # depois de desenhar tudo, flip the display
         pg.display.flip()
 
     def show_start_screen(self):
         pg.mixer.music.load(path.join(self.snd_dir, "start1.ogg"))
+        bg2 = pg.image.load(path.join('img', 'bg3.png')).convert()
         pg.mixer.music.play(-1)
-        self.tela.fill(white)
-        self.draw_text('-= JUMPY JOE =-', 45, GREEN, largura/2, altura/4)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
+        self.tela.blit(bg2, (0, 0))
+        # self.tela.fill(white)
+        self.draw_text('JUMPY_JOE', 50, black, largura/2, altura/5)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura/2, altura/2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura/2, altura*2/3)
         pg.display.flip()
         self.wait_for_key()
 
     def show_go_screen(self):
         pg.mixer.music.load(path.join(self.snd_dir, "gameover.ogg"))
+        bg_over = pg.image.load(path.join('img', 'game_over.png'))
         pg.mixer.music.play(-1)
         if not self.running:
             return
-        self.tela.fill(white)
-        self.draw_text('Pontos: ' + str(self.score), 20, GREEN, 65, 10)
-        self.draw_text('GAME OVER', 45, RED, largura / 2, altura / 4)
-        self.draw_text('Melhor Pontuaçao: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
+        # self.tela.fill(white)
+        self.tela.blit(bg_over, (0, 0))
+        self.draw_text('Pontos: ' + str(self.score), 20, GREEN, 70, 10)
+        self.draw_text('GAME OVER', 60, RED, largura / 2, altura / 5)
+        self.draw_text('Melhor Pontuação: ' + str(self.updateFile()), 20, black, largura / 2, altura / 2)
         self.draw_text('Precione alguma tecla para jogar!', 20, RED, largura / 2, altura * 2 / 3)
         pg.display.flip()
         self.wait_for_key()
