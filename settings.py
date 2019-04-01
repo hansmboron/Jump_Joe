@@ -2,7 +2,7 @@ largura = 480
 altura = 600
 fps = 60
 titulo = 'Jumpy Joe!'
-font_nome = 'arial'
+font_nome = 'Comic Sans MS'
 MS_FILE = "score.txt"
 SPRITSHEET = "spritesheet_jumper.png"
 
@@ -11,8 +11,6 @@ black = (0, 0, 0)
 RED = (200, 0, 0)
 GREEN = (0, 200, 0)
 BLUE = (0, 0, 200)
-LIGHTBLUE = (50, 200, 255)
-BGCOLOR = LIGHTBLUE
 
 # Plataformas iniciais
 PLATFORM_LIST = [(10, altura-50), (180, altura-50),  # (350, altura-50),
@@ -28,11 +26,11 @@ GRAVIDADE = 0.5
 PLAYER_JUMP = 16
 
 # Propriedades do jogo
-BOOST_POWER = 40
-POW_FREQ = 6  # %
+BOOST_POWER = 38
+POW_FREQ = 5  # %
 # MOB_FREQ = 9000  # ms
-PLAYER_LAYER = 2
+PLAYER_LAYER = 3
 PLATFORM_LAYER = 1
 POW_LAYER = 2
-MOB_LAYER = 2
+MOB_LAYER = 3
 CLOUD_LAYER = 0
